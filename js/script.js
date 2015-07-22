@@ -95,7 +95,7 @@ $(document).ready(function(){
 						}
 					});
 				}
-				else if( c.s == 1 )
+				else if( c.s == 1 ) // Edição de entrada existente
 				{
 					$.ajax({
 						type: 'GET',
@@ -112,10 +112,11 @@ $(document).ready(function(){
 					});
 				}
 			});
+			$("#index_content").append("3_2<br/>");
 		}).then(function(){
 			$("#index_content").append("4<br/>");
 			// Dados enviados com sucesso
-			// Agora receber tudo
+			// Agora receber tudo do servidor remoto
 			$.ajax({
 				type: 'GET',
 				url: homepage + "clientes.php?callback=successClients&opt=1",

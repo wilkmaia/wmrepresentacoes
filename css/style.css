@@ -1,14 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/css?family=Open%20Sans);
+
 body, div {
 	margin: 0;
 	padding: 0;
 }
 
 h1 {
-	font: 400 24px Ubuntu, "Open Sans";
+	font: 400 24px Arial;
 }
 
 h2 {
-	font: 400 20px Ubuntu, "Open Sans";
+	font: 400 20px Arial;
 	text-indent: 1em;
 }
 

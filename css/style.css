@@ -1,9 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 @import url(http://fonts.googleapis.com/css?family=Open%20Sans);
 
-body, div {
+body, div, ul, li, a {
 	margin: 0;
 	padding: 0;
+	text-decoration: none;
+	color: #000;
 }
 
 h1 {
@@ -26,8 +28,38 @@ h2 {
 	line-height: 45px;
 }
 
-#content {
+#menu {
 	margin-top: 30px;
-	height: 100px;
-	background: #ddd;
+	text-align: center;
+}
+
+#menu ul li {
+	display: inline;
+	padding: 10px 10px;
+}
+
+#menu ul li:hover {
+	background: #ccc;
+}
+
+#sinc_result {
+	margin-top: 0.5em;
+	height: 1.5em;
+	line-height: 1.5em;
+	text-align: center;
+	background: #42a5a5;
+	color: #e5e592;
+	display: none;
+}
+
+#content {
+	margin-top: 3em;
+}
+
+#listagem {
+	margin-top: 1em;
+}
+
+.listagem_item {
+	cursor: pointer;
 }

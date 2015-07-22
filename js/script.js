@@ -125,6 +125,7 @@ $(document).ready(function(){
 					console.log(a);
 					console.log(b);
 					console.error(e);
+					$("#index_content").append(e);
 				}
 			});
 		});
@@ -172,8 +173,6 @@ function successClients(data) {
 			});
 			$("#index_content").append("" + i + " - " + a.razaoSocial + "<br />");
 		}
-		
-		
 		
 		$("#sinc_result").append("Dados sincronizados com sucesso.");
 		$("#sinc_result").show(1000);

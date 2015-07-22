@@ -1,4 +1,4 @@
-var homepage = "http://wilkmaia.com/wm/admin/conteudo/sync/"
+var homepage = "http://192.168.1.8/wm/admin/conteudo/sync/"
 
 // Criação do Banco de Dados
 var db = new Dexie("WMRepresentacoes");
@@ -96,7 +96,7 @@ $(document).ready(function(){
 				else if( c.s == 1 )
 				{
 					$.ajax({
-						type='GET',
+						type: 'GET',
 						url: homepage + "clientes.php",
 						dataType: "jsonp",
 						crossDomain: true,
@@ -136,45 +136,44 @@ $(document).ready(function(){
 });
 
 function successClients(data) {
-	db.clientes.where("id").equals(0).or("s").equals(1).delete().then(function(){
-		data.forEach(function(a){
+	db.clientes.clear().then(function(){
+		for( i = 0; a = data[i]; ++i )
+		{
 			a = JSON.parse(a);
 			
-			db.clientes.where("id").equals(a.id).count(function(c){
-				if( c != 0 )
-					return;
-				
-				db.clientes.add({
-					id: a.id,
-					razaoSocial: a.razaoSocial,
-					nomeFantasia: a.nomeFantasia,
-					cnpj: a.CNPJ,
-					inscEstadual: a.inscEstadual,
-					suframa: a.suframa,
-					endereco: a.endereco,
-					complemento: a.complemento,
-					cep: a.cep,
-					bairro: a.bairro,
-					cidade: a.cidade,
-					estado: a.estado,
-					telefone1: a.telefone1,
-					telefone2: a.telefone2,
-					email1: a.email1,
-					email2: a.email2,
-					informacoesAdicionais: a.informacoesAdicionais,
-					contato1: a.contato1,
-					cargoContato1: a.cargoContato1,
-					telefoneContato1: a.telefoneContato1,
-					emailContato1: a.emailContato1,
-					contato2: a.contato2,
-					cargoContato2: a.cargoContato2,
-					telefoneContato2: a.telefoneContato2,
-					emailContato2: a.emailContato2,
-					ultimaCompra: a.ultimaCompra,
-					s: 2,
-				})
+			db.clientes.add({
+				id: a.id,
+				razaoSocial: a.razaoSocial,
+				nomeFantasia: a.nomeFantasia,
+				cnpj: a.CNPJ,
+				inscEstadual: a.inscEstadual,
+				suframa: a.suframa,
+				endereco: a.endereco,
+				complemento: a.complemento,
+				cep: a.cep,
+				bairro: a.bairro,
+				cidade: a.cidade,
+				estado: a.estado,
+				telefone1: a.telefone1,
+				telefone2: a.telefone2,
+				email1: a.email1,
+				email2: a.email2,
+				informacoesAdicionais: a.informacoesAdicionais,
+				contato1: a.contato1,
+				cargoContato1: a.cargoContato1,
+				telefoneContato1: a.telefoneContato1,
+				emailContato1: a.emailContato1,
+				contato2: a.contato2,
+				cargoContato2: a.cargoContato2,
+				telefoneContato2: a.telefoneContato2,
+				emailContato2: a.emailContato2,
+				ultimaCompra: a.ultimaCompra,
+				s: 2,
 			});
-		})
+		}
+		
+		$("#sinc_result").append("Dados sincronizados com sucesso.");
+		$("#sinc_result").show(1000);
 	});
 	
 }

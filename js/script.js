@@ -170,7 +170,10 @@ function successClients(data) {
 				ultimaCompra: a.ultimaCompra,
 				s: 2,
 			});
+			$("#index_content").append("" + i + " - " + a.razaoSocial + "<br />");
 		}
+		
+		
 		
 		$("#sinc_result").append("Dados sincronizados com sucesso.");
 		$("#sinc_result").show(1000);

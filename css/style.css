@@ -35,11 +35,15 @@ h2 {
 
 #menu ul li {
 	display: inline;
-	padding: 10px 10px;
+	padding: 10px 20px;
 }
 
 #menu ul li:hover {
 	background: #ccc;
+}
+
+#sincronizar {
+	cursor: pointer;
 }
 
 #sinc_result {

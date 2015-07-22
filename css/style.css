@@ -71,3 +71,27 @@ h2 {
 .listagem_item {
 	cursor: pointer;
 }
+
+.listagem_item_sinc_0 {
+	padding: 0 8px;
+	background: #ff0000;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-radius: 10px;
+}
+
+.listagem_item_sinc_1 {
+	padding: 0 8px;
+	background: #00ff00;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-radius: 10px;
+}
+
+.listagem_item_sinc_2 {
+	padding: 0 8px;
+	background: #0000ff;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-radius: 10px;
+}

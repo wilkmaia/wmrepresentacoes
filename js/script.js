@@ -74,11 +74,8 @@ $(document).ready(function(){
 	});
 	
 	$("#sincronizar").click(function(){
-		$("#index_content").append("1<br/>");
 		db.transaction("r", db.clientes, db.representadas, db.produtos, db.listadeprodutos, db.pedidos, function(){
-			$("#index_content").append("2<br/>");
 			db.clientes.where("s").below(2).each(function(c){
-				$("#index_content").append("3<br/>");
 				if( c.s == 0 ) // Nova entrada
 				{
 					$.ajax({
@@ -112,9 +109,7 @@ $(document).ready(function(){
 					});
 				}
 			});
-			$("#index_content").append("3_2<br/>");
 		}).then(function(){
-			$("#index_content").append("4<br/>");
 			// Dados enviados com sucesso
 			// Agora receber tudo do servidor remoto
 			$.ajax({
@@ -141,12 +136,9 @@ $(document).ready(function(){
 });
 
 function successClients(data) {
-	$("#index_content").append("5<br/>");
 	db.clientes.clear().then(function(){
-		$("#index_content").append("6<br/>");
 		for( i = 0; a = data[i]; ++i )
 		{
-			$("#index_content").append("7<br/>");
 			a = JSON.parse(a);
 			
 			db.clientes.add({

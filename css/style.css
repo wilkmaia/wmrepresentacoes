@@ -64,6 +64,10 @@ h2 {
 	margin-top: 1em;
 }
 
+#index_content {
+	margin-top: 2em;
+}
+
 .listagem_item {
 	cursor: pointer;
 }

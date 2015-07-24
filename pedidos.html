@@ -16,23 +16,22 @@
 		<h1 id="title_title"><a href="index.html">WM Representações.</a></h1>
 	</div>
 	
-	<div id="sinc_result">
-		
-	</div>
-	
 	<div id="menu">
 		<ul>
 			<li><a href="clientes.html">Clientes</a></li>
 			<li><a href="representadas.html">Representadas</a></li>
 			<li><a href="pedidos.html">Pedidos</a></li>
 			<li><a href="produtos.html">Produtos</a></li>
-			<li id="sincronizar"><a href="#">Sincronizar Dados</a></li>
 		</ul>
 	</div>
 	
-	<div id="index_content">
-		<a href="#" onclick="db.delete(); makeNewDatabase( 'WMRepresentacoes' );">APAGAR DATABASE</a>
+	<div id="content">
+		<button onclick="window.location.href = 'cadastrar/pedidos.html'">Cadastrar novo Pedido</button>
 		<br />
+		<div id="listagem">
+			<script>mostrarTodosOsPedidos();</script>
+			
+		</div>
 	</div>
 </body>
 </html>

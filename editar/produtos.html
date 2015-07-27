@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/style_conteudo_cadastrar.css" />
+	
+	<script src="../js/lib/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.maskedinput-1.4.1.js"></script>
+	<script type="text/javascript" src="../js/lib/Dexie.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+</head>
+
+<body>
+	<div id="title">
+		<h1 id="title_title"><a href="../index.html">WM Representações.</a></h1>
+	</div>
+	
+	<div id="menu">
+		<ul>
+			<li><a href="../clientes.html">Clientes</a></li>
+			<li><a href="../representadas.html">Representadas</a></li>
+			<li><a href="../pedidos.html">Pedidos</a></li>
+			<li><a href="../produtos.html">Produtos</a></li>
+		</ul>
+	</div>
+	
+	<div id="content">
+		<p class="cadastrar_info">Os campos marcados em negrito são obrigatórios.</p>
+		<form method="post" action="#" id="cadastrar_form-produtos">
+			<input type="hidden" name="efetuar_cadastro" value="1" />
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label cadastrar_required"><span>Representada</span></div>
+				<select name="representada" class="cadastrar_input cadastrar_input_text" id="representada" required>
+					<script>fillRepresentadas("representada");</script>
+				</select>
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label cadastrar_required"><span>Nome</span></div>
+				<input type="text" name="nome" class="cadastrar_input_text cadastrar_input" id="nome" required />
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label"><span>Código</span></div>
+				<input type="text" name="codigo" class="cadastrar_input_text cadastrar_input" id="codigo" />
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label"><span>IPI</span></div>
+				<input type="text" name="IPI" class="percent_field cadastrar_input" id="IPI" value="0,00%" />
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label cadastrar_required"><span>Preço de Tabela</span></div>
+				<input type="text" name="precoTabela" class="currency_field cadastrar_input" id="precoTabela" required />
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label"><span>Preço de Tabela 2</span></div>
+				<input type="text" name="precoTabela" class="currency_field cadastrar_input" id="precoTabela" />
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label"><span>Preço de Tabela 3</span></div>
+				<input type="text" name="precoTabela" class="currency_field cadastrar_input" id="precoTabela" />
+			</div>
+			
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label"><span>Preço de Tabela 4</span></div>
+				<input type="text" name="precoTabela" class="currency_field cadastrar_input" id="precoTabela" />
+			</div>
+			
+			<div id="cadastrar_buttons_div">
+				<input type="submit" class="green_button cadastrar_button" id="cadastrar_submit" value="Cadastrar Produto" />
+				<input type="button" class="red_button cadastrar_button" id="cadastrar_cancel" value="Limpar Formulário" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>

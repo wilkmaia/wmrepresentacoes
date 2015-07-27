@@ -1,4 +1,4 @@
-var syncpage = "http://192.168.1.8/wm/admin/conteudo/sync/"
+var syncpage = "http://10.46.18.39/wm/admin/conteudo/sync/"
 var db;
 var nProdutos = 0;
 
@@ -13,7 +13,8 @@ function makeNewDatabase( name ) {
 		representadas: "++idx, id, razaoSocial, nomeFantasia, cnpj, comissao, telefone, email, informacoesAdicionais, contato1, cargoContato1, telefoneContato1, emailContato1, contato2, cargoContato2, telefoneContato2, emailContato2, cep, endereco, complemento, bairro, cidade, estado, s",
 		produtos: "++idx, id, representada, nome, codigo, ipi, precoTabela, precoTabela2, precoTabela3, precoTabela4, s",
 		listadeprodutos: "++idx, id, produto, quantidade, descontos, precoLiquido, subtotal, pedido, hash, s",
-		pedidos: "++idx, id, representada, cliente, vendedor, dataEmissao, dataFaturamento, quantidadeTotal, totalSemDescontos, semitotal, total, transportadora, condicaoDePagamento, informacoesAdicionais, status, hash, s"
+		pedidos: "++idx, id, representada, cliente, vendedor, dataEmissao, dataFaturamento, quantidadeTotal, totalSemDescontos, semitotal, total, transportadora, condicaoDePagamento, informacoesAdicionais, status, hash, s",
+		vendedores: "++idx, id, nome",
 	});
 	db.open();
 }
@@ -122,7 +123,10 @@ function getRandomToken() {
 function mostrarTodosOsClientes() {
 	var a = '';
 	db.clientes.each(function(c){
-		a = a + "<div onclick='window.location.href = \"visualizar/clientes.html?id="+ c.idx +"\"' class='listagem_item'><i class='listagem_item_sinc_"+ c.s +"'></i><span class='listagem_item_title'>Cliente:</span> <span class='listagem_item_val'>"+ c.nomeFantasia +"</span> - <span class='listagem_item_title'>CNPJ:</span> <span class='listagem_item_val'>"+ c.cnpj +"</span></div>";
+		if( c.s == 3 )
+			return;
+		
+		a = a + '<div class="clientes_listagem" id="cliente-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/clientes.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button onclick="window.location.href = \'editar/clientes.html?idx='+ c.idx +'\';" class="clientes_listagem_editar" id="clientes_editar-'+ c.id +'">Editar Cliente</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone1 +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email1 +'" target="_blank">'+ c.email1 +'</a></div></div></div>';
 		var x = document.getElementById("listagem");
 		x.innerHTML = a;
 	});
@@ -130,7 +134,10 @@ function mostrarTodosOsClientes() {
 function mostrarTodasAsRepresentadas() {
 	var a = '';
 	db.representadas.each(function(c){
-		a = a + "<div onclick='window.location.href = \"visualizar/representadas.html?id="+ c.idx +"\"' class='listagem_item'><i class='listagem_item_sinc_"+ c.s +"'></i><span class='listagem_item_title'>Representada:</span> <span class='listagem_item_val'>"+ c.nomeFantasia +"</span> - <span class='listagem_item_title'>CNPJ:</span> <span class='listagem_item_val'>"+ c.cnpj +"</span></div>";
+		if( c.s == 3 )
+			return;
+		
+		a = a + '<div class="clientes_listagem" id="representada-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/representadas.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button class="clientes_listagem_editar" id="representadas_editar-'+ c.id +'" onclick="window.location.href = \'editar/representadas.html?idx='+ c.idx +'\';">Editar Representada</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email +'" target="_blank">'+ c.email +'</a></div></div></div>';
 		var x = document.getElementById("listagem");
 		x.innerHTML = a;
 	});
@@ -138,8 +145,20 @@ function mostrarTodasAsRepresentadas() {
 function mostrarTodosOsProdutos() {
 	var a = '';
 	db.produtos.each(function(c){
+		if( c.s == 3 )
+			return;
+		
 		db.representadas.where('id').equals(c.representada).each(function(r){
-			a = a + "<div onclick='window.location.href = \"visualizar/produtos.html?id="+ c.idx +"\"' class='listagem_item'><i class='listagem_item_sinc_"+ c.s +"'></i><span class='listagem_item_title'>Produto:</span> <span class='listagem_item_val'>"+ c.nome +"</span> - <span class='listagem_item_title'>Representada:</span> <span class='listagem_item_val'>"+ r.nomeFantasia +"</span></div>";
+			p = 'R$ '+ pointToCommaSeparator(c.precoTabela);
+			if( c.precoTabela2 )
+				p = p + ' / R$ ' + pointToCommaSeparator(c.precoTabela2);
+			if( c.precoTabela3 )
+				p = p + ' / R$ ' + pointToCommaSeparator(c.precoTabela3);
+			if( c.precoTabela4 )
+				p = p + ' / R$ ' + pointToCommaSeparator(c.precoTabela4);
+			
+			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><button class="clientes_listagem_editar" onclick="window.location.href = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div></div>';
+			
 			var x = document.getElementById("listagem");
 			x.innerHTML = a;
 		});
@@ -148,11 +167,17 @@ function mostrarTodosOsProdutos() {
 function mostrarTodosOsPedidos() {
 	var a = '';
 	db.pedidos.each(function(p){
+		if( p.s == 4 )
+			return;
+		
 		db.representadas.where('id').equals(p.representada).each(function(r){
 			db.clientes.where('id').equals(p.cliente).each(function(c){
-				a = a + "<div onclick='window.location.href = \"visualizar/produtos.html?id="+ p.idx +"\"' class='listagem_item'><i class='listagem_item_sinc_"+ p.s +"'></i><span class='listagem_item_title'>Cliente:</span> <span class='listagem_item_val'>"+ c.nomeFantasia +"</span> - <span class='listagem_item_title'>Representada:</span> <span class='listagem_item_val'>"+ r.nomeFantasia +"</span></div>";
-				var x = document.getElementById("listagem");
-				x.innerHTML = a;
+				db.vendedores.where('id').equals(p.vendedor).each(function(v){
+					console.log("oi");
+					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ c.id +'</strong></span>        <button onclick="window.location.href = \'editar/representadas.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
+					var x = document.getElementById("listagem");
+					x.innerHTML = a;
+				});
 			});
 		});
 	});
@@ -160,7 +185,7 @@ function mostrarTodosOsPedidos() {
 function fillRepresentadas(id) {
 	var a = '<option value="0">----------</option>';
 	db.representadas.each(function(c){
-		if( c.id == 0 )
+		if( c.id == 0 || c.s == 3 )
 			return;
 		
 		a = a + "<option value='"+ c.id +"'>"+ c.nomeFantasia +"</option>";
@@ -171,7 +196,7 @@ function fillRepresentadas(id) {
 function fillClientes(id) {
 	var a = '<option value="0">-----------</option>';
 	db.clientes.each(function(c){
-		if( c.id == 0 )
+		if( c.id == 0 || c.s == 3 )
 			return;
 		
 		a = a + "<option value='"+ c.id +"'>"+ c.nomeFantasia +"</option>";
@@ -202,7 +227,7 @@ function fillProdutos(rep_dom_id, id) {
 		x.innerHTML = a;
 	
 	db.produtos.where("representada").equals(rep).each(function(c){
-		if( c.id == 0 )
+		if( c.id == 0 || c.s == 3 )
 			return;
 		
 		a = a + "<option value='"+ c.id +"'>"+ c.nome +"</option>";
@@ -483,7 +508,7 @@ $(document).ready(function(){
 	
 	$("#sincronizar").click(function(){
 		db.transaction("r", db.clientes, db.representadas, db.produtos, db.listadeprodutos, db.pedidos, function(){
-			db.clientes.where("s").below(2).each(function(c){
+			db.clientes.where("s").anyOf([0, 1, 3]).each(function(c){
 				if( c.s == 0 ) // Nova entrada
 				{
 					$.ajax({
@@ -516,8 +541,26 @@ $(document).ready(function(){
 						}
 					});
 				}
+				else if( c.s == 3 ) // Deleção de entrada
+				{
+					console.log(c.nomeFantasia);
+					$.ajax({
+						type: 'GET',
+						url: syncpage + "clientes.php",
+						dataType: "jsonp",
+						crossDomain: true,
+						data: "opt=4&id=" + c.id,
+						sucess: function(){
+							console.log("Success 2");
+						},
+						error: function(a, b, e) {
+							console.error(e);
+						}
+					});
+					console.log(c.nomeFantasia);
+				}
 			});
-			db.representadas.where("s").below(2).each(function(c){
+			db.representadas.where("s").anyOf([0, 1, 3]).each(function(c){
 				if( c.s == 0 ) // Nova entrada
 				{
 					$.ajax({
@@ -550,8 +593,24 @@ $(document).ready(function(){
 						}
 					});
 				}
+				else if( c.s == 3 ) // Deleção de entrada
+				{
+					$.ajax({
+						type: 'GET',
+						url: syncpage + "representadas.php",
+						dataType: "jsonp",
+						crossDomain: true,
+						data: "opt=4&id=" + c.id,
+						sucess: function(){
+							console.log("Success 2");
+						},
+						error: function(a, b, e) {
+							console.error(e);
+						}
+					});
+				}
 			});
-			db.produtos.where("s").below(2).each(function(c){
+			db.produtos.where("s").anyOf([0, 1, 3]).each(function(c){
 				if( c.s == 0 ) // Nova entrada
 				{
 					$.ajax({
@@ -584,8 +643,24 @@ $(document).ready(function(){
 						}
 					});
 				}
+				else if( c.s == 3 ) // Deleção de entrada
+				{
+					$.ajax({
+						type: 'GET',
+						url: syncpage + "produtos.php",
+						dataType: "jsonp",
+						crossDomain: true,
+						data: "opt=4&id=" + c.id,
+						sucess: function(){
+							console.log("Success 2");
+						},
+						error: function(a, b, e) {
+							console.error(e);
+						}
+					});
+				}
 			});
-			db.pedidos.where("s").below(2).each(function(c){
+			db.pedidos.where("s").anyOf([0, 1, 3]).each(function(c){
 				if( c.s == 0 ) // Nova entrada
 				{
 					$.ajax({
@@ -618,8 +693,24 @@ $(document).ready(function(){
 						}
 					});
 				}
+				else if( c.s == 3 ) // Deleção de entrada
+				{
+					$.ajax({
+						type: 'GET',
+						url: syncpage + "pedido.php",
+						dataType: "jsonp",
+						crossDomain: true,
+						data: "opt=4&id=" + c.id,
+						sucess: function(){
+							console.log("Success 2");
+						},
+						error: function(a, b, e) {
+							console.error(e);
+						}
+					});
+				}
 			});
-			db.listadeprodutos.where("s").below(2).each(function(c){
+			db.listadeprodutos.where("s").anyOf([0, 1, 3]).each(function(c){
 			if( c.s == 0 ) // Nova entrada
 			{
 				$.ajax({
@@ -652,6 +743,22 @@ $(document).ready(function(){
 					}
 				});
 			}
+			else if( c.s == 3 ) // Deleção de entrada
+				{
+					$.ajax({
+						type: 'GET',
+						url: syncpage + "listadeprodutos.php",
+						dataType: "jsonp",
+						crossDomain: true,
+						data: "opt=4&id=" + c.id,
+						sucess: function(){
+							console.log("Success 2");
+						},
+						error: function(a, b, e) {
+							console.error(e);
+						}
+					});
+				}
 		});
 		}).then(function(){
 			// Dados enviados com sucesso
@@ -724,6 +831,21 @@ $(document).ready(function(){
 				jsonpCallback: "successPedidos",
 				jsonp: false,
 				sucess: successPedidos,
+				error: function(a, b, e) {
+					console.log(a);
+					console.log(b);
+					console.error(e);
+					$("#index_content").append(e);
+				}
+			});
+			$.ajax({ // Vendedores
+				type: 'GET',
+				url: syncpage + "vendedores.php?callback=successVendedores&opt=1",
+				dataType: "jsonp",
+				crossDomain: true,
+				jsonpCallback: "successVendedores",
+				jsonp: false,
+				sucess: successVendedores,
 				error: function(a, b, e) {
 					console.log(a);
 					console.log(b);
@@ -917,6 +1039,19 @@ function successPedidos(data) {
 				status: a.status,
 				hash: a.hash,
 				s: 2,
+			});
+		}
+	});
+}
+function successVendedores(data) {
+	db.vendedores.clear().then(function(){
+		for( i = 0; a = data[i]; ++i )
+		{
+			a = JSON.parse(a);
+			db.vendedores.put({
+				idx: i,
+				id: a.id,
+				nome: a.nome,
 			});
 		}
 	});

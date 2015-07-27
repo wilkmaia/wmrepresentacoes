@@ -1,0 +1,188 @@
+.cadastrar_topo {
+	margin-top: 2em;
+	margin-left: 1em;
+	font: 600 0.9em Arial;
+	color: #3975a6;
+}
+
+.cadastrar_principal {
+	width: 96%;
+}
+
+.cadastrar_info {
+	font: 12px Arial;
+	padding: 20px 0;
+}
+
+.cadastrar_campo {
+	width: 100%;
+	padding-top: 1.5em;
+	padding-bottom: 2.8em;
+}
+
+.cadastrar_label {
+	float: left;
+	width: 11em;
+}
+.cadastrar_label span {
+	float: right;
+	font-family: Calibri;
+}
+
+.cadastrar_required {
+	font-weight: 600;
+}
+
+.cadastrar_input {
+	float: left;
+	margin-left: 1em;
+	border-radius: 7px;
+	border: 1px solid #c1c1c1;
+	height: 2em;
+	position: relative;
+	top: -0.5em;
+	width: 45%;
+	color: #23345a;
+	padding: 0 7px;
+}
+.cadastrar_input:focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+.cadastrar_input_textarea {
+	height: 5.5em!important;
+}
+
+.cadastrar_tip {
+	padding-left: 5px;
+	font: 0.7em Arial;
+	color: #6b87ba;
+	display: none;
+	float: left;
+}
+
+.cadastrar_highligth {
+	margin-top: 3.5em;
+	width: 100%;
+}
+
+.cadastrar_highligth_text {
+	padding-left: 2em;
+	color: #6b87ba;
+	font: 16px Ubuntu;
+}
+
+#cadastrar_buttons_div {
+	width: 100%;
+	text-align: center;
+	margin-top: 4em;
+}
+.cadastrar_button {
+	width: 20%;
+	height: 3em;
+}
+#cadastrar_submit {
+	margin-right: 20px;
+}
+#cadastrar_cancel {
+	margin-left: 20px;
+}
+
+.cadastrar_toggle {
+	color: #6b87ba;
+	cursor: pointer;
+}
+
+.cadastrar_highligth_hr {
+	border: 1px solid #efeeff;
+}
+
+#cadastrar_lista_de_produtos {
+	width: 100%;
+	border-bottom: 2px solid #efeeff;
+	margin-bottom: 3.5em;
+}
+
+#cldp_lista {
+	padding-bottom: 0.001em;
+	margin-bottom: 2em;
+	margin-top: 1em;
+}
+
+#cldp_nav {
+	overflow: hidden;
+	overflow-x: scrollbar;
+	font-size: 13px;
+}
+
+.cldp_topo {
+	margin-bottom: 3em;
+	padding-left: 0;
+}
+
+.cldp_title{ 
+	float: left;
+	width: 8%;
+	margin-left: 0.2em;
+}
+
+.cldp_desc {
+	width: 35%;
+}
+
+
+.cldp_item {
+	margin-top: 0.5em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	height: 5em;
+	line-height: 5em;
+	padding-left: 0;
+}
+.cldp_item:hover {
+	background: #eff1f5;
+}
+
+.cldp_produto{ 
+	float: left;
+	width: 8%;
+	padding-left: 0.2em;
+	
+}
+
+.cldp_produto_del { 
+	float: left;
+	display: inline-block;
+	padding-left: 0.2em;
+	
+}
+
+.cldp_desc_2 {
+	width: 35%;
+}
+
+.cldp_input {
+	width: 75%;
+	margin-left: -0.3em;
+	border-radius: 3px;
+	border: 1px solid #c1c1c1;
+	font: 14px Calibri;
+}
+.cldp_input:focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+.cldp_delete {
+	cursor: pointer;
+}
+
+.cldp_desconto_geral {
+	float: right;
+}
+.cldp_desconto_geral span {
+	font: 15px Arial;
+}

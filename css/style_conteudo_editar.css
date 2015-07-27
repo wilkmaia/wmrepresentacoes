@@ -1,0 +1,74 @@
+#e-nome {
+	font: 400 2em 'Ubuntu';
+	margin-left: 0.5em;
+}
+
+.e-produto{
+	color: #333;
+	font: 400 0.9em 'Open Sans';
+	line-height: 4em;
+}
+
+.e-prod_topo {
+	height: 30px;
+	display: table;
+	margin-top: 1em;
+	width: 100%;
+}
+
+.e-prod_list {
+	width: 100%;
+	display: table-row;
+}
+
+.e-produto {
+	display: table-row;
+	width: 100%:
+}
+
+.e-prod_title {
+	display: table-cell;
+	width: 7em;
+}
+
+.e-prod_title_0 {
+	display: table-cell;
+	width: 13em;
+	background: #f9f9f7;
+}
+
+.e-prod_title_1 {
+	display: table-cell;
+	width: 15em;
+}
+
+.e-prod_title_desc {
+	display: table-cell;
+	width: 40%;
+}
+
+.e-prod_title_desc_0 {
+	display: table-cell;
+	background: #f9f9f7;
+	width: 40%;
+}
+
+.e-prod_title_desc_1 {
+	display: table-cell;
+	width: 40%;
+}
+
+.e-prod_title_subtotal_0 {
+	display: table-cell;
+	background: #f9f9f7;
+	width: 7em;
+}
+
+.e-prod_title_subtotal_1 {
+	display: table-cell;
+	width: 7em;
+}
+
+.e-prod_delete {
+	cursor: pointer;
+}

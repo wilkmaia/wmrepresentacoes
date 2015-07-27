@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 @import url(http://fonts.googleapis.com/css?family=Open%20Sans);
 
-body, div, ul, li, a {
+body, div, ul, li, a, h1, h2 {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
@@ -10,11 +10,6 @@ body, div, ul, li, a {
 
 h1 {
 	font: 400 24px Arial;
-}
-
-h2 {
-	font: 400 20px Arial;
-	text-indent: 1em;
 }
 
 #title {
@@ -94,4 +89,8 @@ h2 {
 	margin-left: 4px;
 	margin-right: 4px;
 	border-radius: 10px;
+}
+
+.listagem_item_sinc_3 {
+	display: none;
 }

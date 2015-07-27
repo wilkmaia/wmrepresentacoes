@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style_conteudo.css" />
 	
 	<script src="js/lib/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="js/lib/jquery.maskedinput-1.4.1.js"></script>
@@ -26,11 +27,10 @@
 	</div>
 	
 	<div id="content">
-		<button onclick="window.location.href = 'cadastrar/produtos.html'">Cadastrar novo Produto</button>
+		<button class="green_button botao_cadastrar" onclick="window.location.href = 'cadastrar/produtos.html'">Cadastrar novo Produto</button>
 		<br />
 		<div id="listagem">
 			<script>mostrarTodosOsProdutos();</script>
-			
 		</div>
 	</div>
 </body>

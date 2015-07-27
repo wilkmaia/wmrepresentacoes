@@ -1,0 +1,267 @@
+#v-main_div {
+	width: 101%;
+	margin-left: -2%;
+}
+
+#v-title {
+	height: 6em;
+	width: 100%;
+}
+
+#v-title_text {
+	font: 600 2em Calibri;
+	line-height: 1.5em;
+	padding-left: 3em;
+	color: #3982BB;
+}
+
+.v-top_button {
+	margin-left: 3em;
+	width: 13em;
+}
+
+#v-info_div {
+	margin-top: 1em;
+	background: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	border: 2px groove rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	display: table;
+}
+
+.v-info_databox {
+	margin-bottom: 0.8em;
+	text-align: justify;
+}
+
+.v-info_div_topo {
+	width: 31.33%;
+	margin-left: 1.5%;
+	margin-top: 1.5%;
+	font: 14px Calibri;
+
+	display: inline-table;
+}
+
+.v-info_label {
+	color: #666;
+	float: left;
+	width: 7em;
+	text-align: left;
+}
+.v-info_label_addr {
+	height: 7em;
+}
+
+.v-info_data {
+	color: #222;
+}
+
+#v-info_separator {
+	width: 100%;
+	text-align: center;
+	display: block;
+	border-top: 1px dotted #aaa;
+	font: 14px Calibri;
+	color: #37d;
+	cursor: pointer;
+}
+
+.v-info_div_baixo {
+	width: 50%;
+	margin-left: 1.5%;
+	margin-top: 1.5%;
+	font: 14px Calibri;
+
+	display: inline-table;
+}
+
+.v-info_div_baixo_2 {
+	width: 40%;
+	margin-left: 1.5%;
+	margin-top: 1.5%;
+	font: 14px Calibri;
+
+	display: inline-table;
+}
+.v-info_label_2 {
+	color: #666;
+	float: left;
+	width: 11em;
+	text-align: left;
+}
+
+.v-second_div {
+	margin-top: 4em;
+}
+
+.v-second_div_title {
+	font: 600 1em Ubuntu;
+	color: #3982BB;
+}
+
+.v-lista_produtos {
+	margin-top: 2em;
+}
+
+.v-ref_code {
+	font-size: 13px;
+}
+
+.v-infos_cliente {
+	padding: 2em 0;
+	border-top: 1px dotted #c7d3e1;
+	padding-left: 1%;
+	cursor: pointer;
+}
+.v-infos_cliente:hover {
+	background: #eff1f5;
+}
+
+.v-produto{
+	color: #333;
+	font: 400 0.8em 'Open Sans';
+	line-height: 4em;
+}
+
+.v-prod_topo {
+	height: 30px;
+	display: table;
+	margin-top: 1em;
+}
+
+.v-prod_title {
+	display: table-cell;
+	width: 7em;
+}
+
+.v-prod_title_0 {
+	display: table-cell;
+	width: 9em;
+	background: #f9f9f7;
+}
+
+.v-prod_title_1 {
+	display: table-cell;
+	width: 9em;
+}
+
+.v-prod_title_desc {
+	display: table-cell;
+	width: 40%;
+}
+
+.v-prod_title_desc_0 {
+	display: table-cell;
+	background: #f9f9f7;
+	width: 40%;
+}
+
+.v-prod_title_desc_1 {
+	display: table-cell;
+	width: 40%;
+}
+
+.v-prod_title_subtotal_0 {
+	display: table-cell;
+	background: #f9f9f7;
+}
+
+.v-prod_title_subtotal_1 {
+	display: table-cell;
+}
+
+.v-title_status {
+	float: right;
+	margin-right: 1%;
+	border: 1px solid;
+	border-radius: 15px;
+	padding: 4px 6px;
+}
+
+.v-title_status_I {
+	background: #bf5f5f;
+	border-color: #a45252;
+	color: #fff;
+}
+
+.v-title_status_C {
+	background: #5fbf5f;
+	border-color: #52a452;
+	color: #fff;
+}
+
+.v-title_status_E {
+	background: #5f5fbf;
+	border-color: #5252a4;
+	color: #fff;
+}
+
+.v-bottom_border {
+	border: none;
+	border-bottom: 1px dotted #c7d3e1;
+	margin-top: 0;
+}
+
+#v-infos_comp {
+	margin-top: 2em;
+	margin-left: 5em;
+}
+
+.v-infos_comp_tr {
+	font: 400 0.9em 'Open Sans';
+	line-height: 2em;
+}
+
+.v-infos_comp_campo {
+	width: 25em;
+	color: #666;
+}
+
+.v-infos_comp_valor {
+	text-align: left;
+	width: 40em;
+	color: #222;
+}
+
+.v-infos_comp_valor {
+	text-align: left;
+	color: #222;
+}
+
+#v-valor_final {
+	width: 100%;
+	height: 3em;
+	background: #f9f9f7;
+	text-align: right;
+	margin-top: 2em;
+	padding: 2em 0;
+	font: 400 0.8em 'Ubuntu';
+	color: #666;
+}
+
+#v-valor_total {
+	font: 600 1.8em 'Ubuntu';
+	padding-left: 0.2em;
+	color: #468847;
+}
+
+#v-quantidade_total {
+	font-size: 90%;
+	padding-left: 0.2em;
+	color: #333;
+}
+
+#v-valor_final_text {
+	margin-right: 3em;
+	margin-top: -1em;
+}
+
+#v-modify_status {
+	
+}
+
+#v-modify_status_text {
+	padding-left: 6em;
+	padding-right: .75em;
+}

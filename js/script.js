@@ -2,8 +2,8 @@ var syncpage = "http://10.46.18.39/wm/admin/conteudo/sync/"
 var db;
 var nProdutos = 0;
 var _z = 0;
-var _data;
-var _delProd;
+var _data = {};
+var _delProd = {};
 
 // Criação do Banco de Dados
 function makeNewDatabase( name ) {

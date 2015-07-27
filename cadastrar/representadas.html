@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/style_conteudo_cadastrar.css" />
 	
 	<script src="../js/lib/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="../js/lib/jquery.maskedinput-1.4.1.js"></script>
@@ -26,138 +27,141 @@
 	</div>
 	
 	<div id="content">
-		<form id="cad-representada_form">
-			<div class="cadastrar_campo">
-			<div class="cadastrar_label cadastrar_required"><span>Razão Social</span></div>
-			<input type="text" name="razaoSocial" class="cadastrar_input cadastrar_input_text" id="razaoSocial" required />
-		</div>
-		
-		<div class="cadastrar_campo">
-			<div class="cadastrar_label cadastrar_required"><span>Nome Fantasia</span></div>
-			<input type="text" name="nomeFantasia" class="cadastrar_input_text cadastrar_input" id="nomeFantasia" required />
-		</div>
-		
-		<div class="cadastrar_campo">
-			<div class="cadastrar_label cadastrar_required"><span>CNPJ</span></div>
-			<input type="text" name="CNPJ" class="cnpj_field cadastrar_input" id="cnpj" required />
-		</div>
-		
-		<div class="cadastrar_campo">
-			<div class="cadastrar_label"><span>Telefone</span></div>
-			<input type="text" name="telefone" class="phone_field cadastrar_input" id="telefone" />
-		</div>
-		
-		<div class="cadastrar_campo">
-			<div class="cadastrar_label"><span>E-mail</span></div>
-			<input type="email" name="email" class="cadastrar_input_mail cadastrar_input" id="email" />
-		</div>
-		
-		<div class="cadastrar_campo">
-			<div class="cadastrar_label"><span>Comissão</span></div>
-			<input type="text" name="comissao" class="percent_field cadastrar_input" id="comissao" />
-		</div>
-		
-		<p id="cadastrar_show_all" class="cadastrar_toggle">Exibir formulário completo</p>
-		<p id="cadastrar_hide_all" class="cadastrar_toggle" style="display: none;">Ocultar formulário completo</p>
-		
-		<div id="cadastrar_completo" style="display: none;">
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Informações Adicionais</span></div>
-				<textarea name="informacoesAdicionais" class="cadastrar_input_textarea cadastrar_input" id="informacoesAdicionais"></textarea>
-				<span class="cadastrar_tip" id="cadastrar_tip-informacoesAdicionais">Insira aqui quaisquer informações adicionais sobre a representada. Este campo não aparecerá no pedido.</span>
-			</div>
+		<p class="cadastrar_info">Os campos marcados em negrito são obrigatórios.</p>
+		<form method="post" action="#" id="cadastrar_form-representadas">
+			<input type="hidden" name="efetuar_cadastro" value="1" />
 			
-			<div class="cadastrar_highligth">
-				<span class="cadastrar_highligth_text">CONTATO 1</span>
-				<hr class="cadastrar_highligth_hr" />
+			<div class="cadastrar_campo">
+				<div class="cadastrar_label cadastrar_required"><span>Razão Social</span></div>
+				<input type="text" name="razaoSocial" class="cadastrar_input cadastrar_input_text" id="razaoSocial" required />
 			</div>
 			
 			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Nome</span></div>
-				<input type="text" name="contato1" class="cadastrar_input_text cadastrar_input" id="contato1" />
+				<div class="cadastrar_label cadastrar_required"><span>Nome Fantasia</span></div>
+				<input type="text" name="nomeFantasia" class="cadastrar_input_text cadastrar_input" id="nomeFantasia" required />
 			</div>
 			
 			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Cargo</span></div>
-				<input type="text" name="cargoContato1" class="cadastrar_input_text cadastrar_input" id="cargoContato1" />
+				<div class="cadastrar_label cadastrar_required"><span>CNPJ</span></div>
+				<input type="text" name="CNPJ" class="cnpj_field cadastrar_input" id="cnpj" required />
 			</div>
 			
 			<div class="cadastrar_campo">
 				<div class="cadastrar_label"><span>Telefone</span></div>
-				<input type="text" name="telefoneContato1" class="phone_field cadastrar_input" id="telefoneContato1" />
+				<input type="text" name="telefone" class="phone_field cadastrar_input" id="telefone" />
 			</div>
 			
 			<div class="cadastrar_campo">
 				<div class="cadastrar_label"><span>E-mail</span></div>
-				<input type="email" name="emailContato1" class="cadastrar_input_mail cadastrar_input" id="emailContato1" />
-			</div>
-			
-			<div class="cadastrar_highligth">
-				<span class="cadastrar_highligth_text">CONTATO 2</span>
-				<hr class="cadastrar_highligth_hr" />
+				<input type="email" name="email" class="cadastrar_input_mail cadastrar_input" id="email" />
 			</div>
 			
 			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Nome</span></div>
-				<input type="text" name="contato2" class="cadastrar_input_text cadastrar_input" id="contato2" />
+				<div class="cadastrar_label"><span>Comissão</span></div>
+				<input type="text" name="comissao" class="percent_field cadastrar_input" id="comissao" />
 			</div>
 			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Cargo</span></div>
-				<input type="text" name="cargoContato2" class="cadastrar_input_text cadastrar_input" id="cargoContato2" />
+			<p id="cadastrar_show_all" class="cadastrar_toggle">Exibir formulário completo</p>
+			<p id="cadastrar_hide_all" class="cadastrar_toggle" style="display: none;">Ocultar formulário completo</p>
+			
+			<div id="cadastrar_completo" style="display: none;">
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Informações Adicionais</span></div>
+					<textarea name="informacoesAdicionais" class="cadastrar_input_textarea cadastrar_input" id="informacoesAdicionais"></textarea>
+					<span class="cadastrar_tip" id="cadastrar_tip-informacoesAdicionais">Insira aqui quaisquer informações adicionais sobre a representada. Este campo não aparecerá no pedido.</span>
+				</div>
+				
+				<div class="cadastrar_highligth">
+					<span class="cadastrar_highligth_text">CONTATO 1</span>
+					<hr class="cadastrar_highligth_hr" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Nome</span></div>
+					<input type="text" name="contato1" class="cadastrar_input_text cadastrar_input" id="contato1" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Cargo</span></div>
+					<input type="text" name="cargoContato1" class="cadastrar_input_text cadastrar_input" id="cargoContato1" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Telefone</span></div>
+					<input type="text" name="telefoneContato1" class="phone_field cadastrar_input" id="telefoneContato1" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>E-mail</span></div>
+					<input type="email" name="emailContato1" class="cadastrar_input_mail cadastrar_input" id="emailContato1" />
+				</div>
+				
+				<div class="cadastrar_highligth">
+					<span class="cadastrar_highligth_text">CONTATO 2</span>
+					<hr class="cadastrar_highligth_hr" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Nome</span></div>
+					<input type="text" name="contato2" class="cadastrar_input_text cadastrar_input" id="contato2" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Cargo</span></div>
+					<input type="text" name="cargoContato2" class="cadastrar_input_text cadastrar_input" id="cargoContato2" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Telefone</span></div>
+					<input type="text" name="telefoneContato2" class="phone_field cadastrar_input" id="telefoneContato2" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>E-mail</span></div>
+					<input type="email" name="emailContato2" class="cadastrar_input_mail cadastrar_input" id="emailContato2" />
+				</div>
+				
+				<div class="cadastrar_highligth">
+					<span class="cadastrar_highligth_text">ENDEREÇO</span>
+					<hr class="cadastrar_highligth_hr" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>CEP</span></div>
+					<input type="text" name="cep" class="cep_field cadastrar_input" id="cep" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Endereço</span></div>
+					<input type="text" name="endereco" class="cadastrar_input_text cadastrar_input" id="endereco" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Complemento</span></div>
+					<input type="text" name="complemento" class="cadastrar_input_text cadastrar_input" id="complemento" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Bairro</span></div>
+					<input type="text" name="bairro" class="cadastrar_input_text cadastrar_input" id="bairro" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Cidade</span></div>
+					<input type="text" name="cidade" class="cadastrar_input_text cadastrar_input" id="cidade" />
+				</div>
+				
+				<div class="cadastrar_campo">
+					<div class="cadastrar_label"><span>Estado (UF)</span></div>
+					<input type="text" name="estado" class="cadastrar_input_text cadastrar_input" id="estado" maxlength="2" pattern="[A-Za-z]{2}" />
+					<span class="cadastrar_tip" id="cadastrar_tip-estado">Insira apenas a sigla do estado (Exemplo: PI, MA, CE, ...)</span>
+				</div>
 			</div>
 			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Telefone</span></div>
-				<input type="text" name="telefoneContato2" class="phone_field cadastrar_input" id="telefoneContato2" />
+			<div id="cadastrar_buttons_div">
+				<input type="submit" class="green_button cadastrar_button" id="cadastrar_submit" value="Cadastrar Representada" />
+				<input type="button" class="red_button cadastrar_button" id="cadastrar_cancel" value="Limpar Formulário" />
 			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>E-mail</span></div>
-				<input type="email" name="emailContato2" class="cadastrar_input_mail cadastrar_input" id="emailContato2" />
-			</div>
-			
-			<div class="cadastrar_highligth">
-				<span class="cadastrar_highligth_text">ENDEREÇO</span>
-				<hr class="cadastrar_highligth_hr" />
-			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>CEP</span></div>
-				<input type="text" name="cep" class="cep_field cadastrar_input" id="cep" />
-			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Endereço</span></div>
-				<input type="text" name="endereco" class="cadastrar_input_text cadastrar_input" id="endereco" />
-			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Complemento</span></div>
-				<input type="text" name="complemento" class="cadastrar_input_text cadastrar_input" id="complemento" />
-			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Bairro</span></div>
-				<input type="text" name="bairro" class="cadastrar_input_text cadastrar_input" id="bairro" />
-			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Cidade</span></div>
-				<input type="text" name="cidade" class="cadastrar_input_text cadastrar_input" id="cidade" />
-			</div>
-			
-			<div class="cadastrar_campo">
-				<div class="cadastrar_label"><span>Estado (UF)</span></div>
-				<input type="text" name="estado" class="cadastrar_input_text cadastrar_input" id="estado" maxlength="2" pattern="[A-Za-z]{2}" />
-				<span class="cadastrar_tip" id="cadastrar_tip-estado">Insira apenas a sigla do estado (Exemplo: PI, MA, CE, ...)</span>
-			</div>
-		</div>
-		
-		<div id="cadastrar_buttons_div">
-			<input type="submit" class="green_button cadastrar_button" id="cadastrar_submit" value="Cadastrar Representada" />
-			<input type="button" class="red_button cadastrar_button" id="limpa_form" value="Limpar Formulário" />
-		</div>
 		</form>
 	</div>
 </body>

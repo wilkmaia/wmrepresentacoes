@@ -75,7 +75,6 @@
     font: 300 12px Arial;
     padding-top: 3px;
     padding-bottom: 3px;
-	width: 100%;
 	height: 3.8em;
 }
 .clientes_listagem_0 {
@@ -103,7 +102,6 @@
 
 .produtos_listagem_conteudo {
 	float: left;
-	width: 90%;
 	margin-top: 0.7em;
 	margin-left: 0.5em;
 }

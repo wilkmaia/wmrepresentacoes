@@ -12,6 +12,7 @@
 .cadastrar_info {
 	font: 12px Arial;
 	padding: 20px 0;
+	margin-left: 5%;
 }
 
 .cadastrar_campo {
@@ -93,6 +94,7 @@
 .cadastrar_toggle {
 	color: #6b87ba;
 	cursor: pointer;
+	margin-left: 5%;
 }
 
 .cadastrar_highligth_hr {

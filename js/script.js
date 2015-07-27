@@ -157,7 +157,7 @@ function mostrarTodosOsProdutos() {
 			if( c.precoTabela4 )
 				p = p + ' / R$ ' + pointToCommaSeparator(c.precoTabela4);
 			
-			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><button class="clientes_listagem_editar" onclick="window.location.href = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div></div>';
+			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div><div><button class="clientes_listagem_editar" onclick="window.location.href = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button></div></div>';
 			
 			var x = document.getElementById("listagem");
 			x.innerHTML = a;
@@ -173,8 +173,7 @@ function mostrarTodosOsPedidos() {
 		db.representadas.where('id').equals(p.representada).each(function(r){
 			db.clientes.where('id').equals(p.cliente).each(function(c){
 				db.vendedores.where('id').equals(p.vendedor).each(function(v){
-					console.log("oi");
-					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ c.id +'</strong></span>        <button onclick="window.location.href = \'editar/representadas.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
+					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ v.nome +'</strong></span>        <button onclick="window.location.href = \'editar/representadas.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
 					var x = document.getElementById("listagem");
 					x.innerHTML = a;
 				});
@@ -360,7 +359,7 @@ $(document).ready(function(){
 	
 
 	
-	$("#cad-cliente_form").submit(function(e){
+	$("#cadastrar_form-clientes").submit(function(e){
 		e.preventDefault();
 		
 		db.clientes.add({
@@ -395,7 +394,7 @@ $(document).ready(function(){
 			window.location.href = "../index.html";
 		});
 	});
-	$("#cad-representada_form").submit(function(e){
+	$("#cadastrar_form-representadas").submit(function(e){
 		e.preventDefault();
 		
 		alert($("#cnpj").val());
@@ -428,7 +427,7 @@ $(document).ready(function(){
 			window.location.href = "../index.html";
 		});
 	});
-	$("#cad-produtos_form").submit(function(e){
+	$("#cadastrar_form-produtos").submit(function(e){
 		e.preventDefault();
 		
 		db.produtos.add({
@@ -446,7 +445,7 @@ $(document).ready(function(){
 			window.location.href = "../index.html";
 		});
 	});
-	$("#cad-pedidos_form").submit(function(e){
+	$("#cadastrar_form-pedidos").submit(function(e){
 		e.preventDefault();
 		// id, produto, quantidade, descontos, precoLiquido, subtotal, pedido, hash
 		randomToken = getRandomToken();
@@ -495,6 +494,7 @@ $(document).ready(function(){
 			window.location.href = "../index.html";
 		});
 	});
+	
 	
 	
 	$("#limpa_form").click(function(){

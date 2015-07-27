@@ -132,7 +132,7 @@ function mostrarTodosOsClientes() {
 		if( c.s == 3 )
 			return;
 		
-		a = a + '<div class="clientes_listagem" id="cliente-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/clientes.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button onclick="window.location.href = \'editar/clientes.html?idx='+ c.idx +'\';" class="clientes_listagem_editar" id="clientes_editar-'+ c.id +'">Editar Cliente</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone1 +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email1 +'" target="_blank">'+ c.email1 +'</a></div></div></div>';
+		a = a + '<div class="clientes_listagem" id="cliente-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/clientes.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button onclick="document.location = \'editar/clientes.html?idx='+ c.idx +'\';" class="clientes_listagem_editar" id="clientes_editar-'+ c.id +'">Editar Cliente</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone1 +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email1 +'" target="_blank">'+ c.email1 +'</a></div></div></div>';
 		var x = document.getElementById("listagem");
 		x.innerHTML = a;
 	});
@@ -143,7 +143,7 @@ function mostrarTodasAsRepresentadas() {
 		if( c.s == 3 )
 			return;
 		
-		a = a + '<div class="clientes_listagem" id="representada-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/representadas.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button class="clientes_listagem_editar" id="representadas_editar-'+ c.id +'" onclick="window.location.href = \'editar/representadas.html?idx='+ c.idx +'\';">Editar Representada</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email +'" target="_blank">'+ c.email +'</a></div></div></div>';
+		a = a + '<div class="clientes_listagem" id="representada-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/representadas.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button class="clientes_listagem_editar" id="representadas_editar-'+ c.id +'" onclick="document.location = \'editar/representadas.html?idx='+ c.idx +'\';">Editar Representada</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email +'" target="_blank">'+ c.email +'</a></div></div></div>';
 		var x = document.getElementById("listagem");
 		x.innerHTML = a;
 	});
@@ -163,7 +163,7 @@ function mostrarTodosOsProdutos() {
 			if( c.precoTabela4 )
 				p = p + ' / R$ ' + pointToCommaSeparator(c.precoTabela4);
 			
-			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div><div><button class="clientes_listagem_editar" onclick="window.location.href = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button></div></div>';
+			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div><div><button class="clientes_listagem_editar" onclick="document.location = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button></div></div>';
 			
 			var x = document.getElementById("listagem");
 			x.innerHTML = a;
@@ -179,7 +179,7 @@ function mostrarTodosOsPedidos() {
 		db.representadas.where('id').equals(p.representada).each(function(r){
 			db.clientes.where('id').equals(p.cliente).each(function(c){
 				db.vendedores.where('id').equals(p.vendedor).each(function(v){
-					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ v.nome +'</strong></span>        <button onclick="window.location.href = \'editar/pedidos.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
+					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ v.nome +'</strong></span>        <button onclick="document.location = \'editar/pedidos.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
 					var x = document.getElementById("listagem");
 					x.innerHTML = a;
 				});
@@ -408,7 +408,7 @@ $(document).ready(function(){
 				ultimaCompra: $("#ultimaCompra").val(),
 				s: 1,
 			}).then(function(){
-				window.location.href = "../clientes.html";
+				document.location = "../clientes.html";
 			});
 		}
 		else
@@ -442,7 +442,7 @@ $(document).ready(function(){
 				ultimaCompra: $("#ultimaCompra").val(),
 				s: 0,
 			}).then(function(){
-				window.location.href = "../clientes.html";
+				document.location = "../clientes.html";
 			});
 		}
 	});
@@ -476,7 +476,7 @@ $(document).ready(function(){
 				emailContato2: $("#emailContato2").val(),
 				s: 1,
 			}).then(function(){
-				window.location.href = "../representadas.html";
+				document.location = "../representadas.html";
 			});
 		}
 		else
@@ -506,7 +506,7 @@ $(document).ready(function(){
 				emailContato2: $("#emailContato2").val(),
 				s: 0,
 			}).then(function(){
-				window.location.href = "../representadas.html";
+				document.location = "../representadas.html";
 			});
 		}
 	});
@@ -527,7 +527,7 @@ $(document).ready(function(){
 				precoTabela4: myParseFloat($("#precoTabela4").val()),
 				s: 1,
 			}).then(function(){
-				window.location.href = "../produtos.html";
+				document.location = "../produtos.html";
 			});
 		}
 		else
@@ -544,7 +544,7 @@ $(document).ready(function(){
 				precoTabela4: myParseFloat($("#precoTabela4").val()),
 				s: 0,
 			}).then(function(){
-				window.location.href = "../produtos.html";
+				document.location = "../produtos.html";
 			});
 		}
 	});
@@ -622,7 +622,7 @@ $(document).ready(function(){
 					}
 				});
 			}).then(function(){
-				window.location.href = "../pedidos.html";
+				document.location = "../pedidos.html";
 			});
 		}
 		else
@@ -668,7 +668,7 @@ $(document).ready(function(){
 					});
 				}
 			}).then(function(){
-				window.location.href = "../pedidos.html";
+				document.location = "../pedidos.html";
 			});
 		}
 	});
@@ -1074,22 +1074,46 @@ $(document).ready(function(){
 
 	
 	// Get page query string
-	page = window.location.href.split('/');
-	_data = {};
+	//page = document.location.split('/');
+	var page;
+	var act;
+	var query_str;
 	
-	if( page[5] && page[5].split('?').length > 1 )
+	// Android
+	if ( (navigator.userAgent.indexOf('Android') != -1) ) {
+		pathname = document.location.pathname.split('/');
+		page = pathname[pathname.length - 1];
+		act = pathname[pathname.length - 2];
+		query_str = document.location.search.split('?')[1];
+	}
+	else
 	{
-		query_str = page[5].split('?')[1].split('&');
+		fullpage = window.location.href.split('?')[0].split('/');
+		page = fullpage[fullpage.length - 1];
+		act = fullpage[fullpage.length - 2];
+		query_str = window.location.href.split('?')[1];
+	}
+	
+	/*
+	// iPhone / iPod
+	if(navigator.userAgent.match(/iPhone|iPod/i))
+		window.location.replace("your iPhone HTML file.html");
+	if(navigator.userAgent.match(/iPad/i))
+		window.location.replace("your iPad HTML file.html");
+	}
+	*/
+	
+	if( query_str != "" && query_str != undefined )
+	{
+		query_str = query_str.split('&');
 		for( i = 0; i < query_str.length; ++i )
 			_data[query_str[i].split('=')[0]] = query_str[i].split('=')[1];
 	}
 	
-	if( page[4] == "editar" )
+	if( act == "editar" )
 	{
-		page = page[5].split('?')[0];
-		
 		if( _data['idx'] == undefined )
-			window.location.href = '../'+ page;
+			document.location = '../'+ page;
 		
 		_delProd = {};
 		

@@ -132,7 +132,7 @@ function mostrarTodosOsClientes() {
 		if( c.s == 3 )
 			return;
 		
-		a = a + '<div class="clientes_listagem" id="cliente-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/clientes.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button onclick="document.location = \'editar/clientes.html?idx='+ c.idx +'\';" class="clientes_listagem_editar" id="clientes_editar-'+ c.id +'">Editar Cliente</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone1 +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email1 +'" target="_blank">'+ c.email1 +'</a></div></div></div>';
+		a = a + '<div class="clientes_listagem" id="cliente-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/clientes.html?idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button onclick="document.location = \'editar/clientes.html?idx='+ c.idx +'\';" class="clientes_listagem_editar" id="clientes_editar-'+ c.id +'">Editar Cliente</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone1 +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email1 +'" target="_blank">'+ c.email1 +'</a></div></div></div>';
 		var x = document.getElementById("listagem");
 		x.innerHTML = a;
 	});
@@ -143,7 +143,7 @@ function mostrarTodasAsRepresentadas() {
 		if( c.s == 3 )
 			return;
 		
-		a = a + '<div class="clientes_listagem" id="representada-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/representadas.html?&idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button class="clientes_listagem_editar" id="representadas_editar-'+ c.id +'" onclick="document.location = \'editar/representadas.html?idx='+ c.idx +'\';">Editar Representada</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email +'" target="_blank">'+ c.email +'</a></div></div></div>';
+		a = a + '<div class="clientes_listagem" id="representada-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/representadas.html?idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><button class="clientes_listagem_editar" id="representadas_editar-'+ c.id +'" onclick="document.location = \'editar/representadas.html?idx='+ c.idx +'\';">Editar Representada</button><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email +'" target="_blank">'+ c.email +'</a></div></div></div>';
 		var x = document.getElementById("listagem");
 		x.innerHTML = a;
 	});
@@ -163,7 +163,7 @@ function mostrarTodosOsProdutos() {
 			if( c.precoTabela4 )
 				p = p + ' / R$ ' + pointToCommaSeparator(c.precoTabela4);
 			
-			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div><div><button class="clientes_listagem_editar" onclick="document.location = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button></div></div>';
+			a = a + '<div class="clientes_listagem" id="produto-'+ c.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="visualizar/produtos.html?idx='+ c.idx +'"><span>'+ c.nome +'</span></a> <span class="clientes_listagem-razao">- '+ r.nomeFantasia +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ p +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(c.ipi) +'%</div></div></div><div><button class="clientes_listagem_editar" onclick="document.location = \'editar/produtos.html?idx='+ c.idx +'\';" id="produtos_editar-'+ c.id +'">Editar Produto</button></div></div>';
 			
 			var x = document.getElementById("listagem");
 			x.innerHTML = a;
@@ -179,7 +179,7 @@ function mostrarTodosOsPedidos() {
 		db.representadas.where('id').equals(p.representada).each(function(r){
 			db.clientes.where('id').equals(p.cliente).each(function(c){
 				db.vendedores.where('id').equals(p.vendedor).each(function(v){
-					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/produtos.html?&idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ v.nome +'</strong></span>        <button onclick="document.location = \'editar/pedidos.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
+					a = a + '<div class="clientes_listagem" id="cliente-'+ p.id +'">        <a class="clientes_listagem-fantasia" href="visualizar/pedidos.html?idx='+ p.idx +'"><span class="clientes_listagem-fantasia">Pedido #'+ p.id +'</span></a> <span class="clientes_listagem-razao">- emitido por <strong>'+ v.nome +'</strong></span>        <button onclick="document.location = \'editar/pedidos.html?idx='+ p.idx +'\';" class="clientes_listagem_editar" id="pedidos_editar-'+ p.id +'">Editar Pedido</button>        <div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'">			<div class="pedidos_listagem_helper pedidos_listagem_helper_1">				<div class="clientes_listagem_div_interna_fone"><strong>Representada:</strong> '+ r.nomeFantasia +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Cliente:</strong> '+ c.nomeFantasia +'</div>			</div>			<div class="pedidos_listagem_helper pedidos_listagem_helper_2">				<div class="clientes_listagem_div_interna_fone"><strong>Total:</strong> R$ '+ pointToCommaSeparator(p.total) +'</div>				<div class="clientes_listagem_div_interna_mail"><strong>Pagamento:</strong> '+ p.condicaoDePagamento +'</div>			</div>        </div>    </div>';
 					var x = document.getElementById("listagem");
 					x.innerHTML = a;
 				});
@@ -1105,9 +1105,9 @@ $(document).ready(function(){
 	
 	if( query_str != "" && query_str != undefined )
 	{
-		query_str = query_str.split('&');
-		for( i = 0; i < query_str.length; ++i )
-			_data[query_str[i].split('=')[0]] = query_str[i].split('=')[1];
+		query = query_str.split('&');
+		for( i = 0; i < query.length; ++i )
+			_data[query[i].split('=')[0]] = query[i].split('=')[1];
 	}
 	
 	if( act == "editar" )
@@ -1277,6 +1277,265 @@ $(document).ready(function(){
 				break;
 		}
 	}
+
+	else if( act == "visualizar" )
+	{
+		if( _data['idx'] == undefined )
+			document.location = '../'+ page;
+		
+		switch( page )
+		{
+			case "clientes.html":
+				db.clientes.where('idx').equals(parseInt(_data['idx'])).each(function(c){
+					$("#razaoSocial").html( c.razaoSocial );
+					$("#v-title_text").html( c.nomeFantasia );
+					$("#nomeFantasia").html( c.nomeFantasia );
+					$("#cnpj").html( c.cnpj );
+					$("#inscEstadual").html( c.inscEstadual );
+					
+					addr = "&nbsp;";
+					if( c.endereco != "" )
+						addr = c.endereco;
+					if( c.complemento != "" )
+						addr += "<br />" + c.complemento;
+					if( c.cep != "" )
+						addr += "<br />" + c.cep;
+					if( c.bairro != "" )
+						addr += " - " + c.bairro;
+					if( c.cidade != "" )
+						addr += "<br />" + c.cidade;
+					if( c.estado != "" )
+						addr += "/" + c.estado;
+					$("#endereco").html( addr );
+					$("#endereco").css( "height", $("#endereco").parent().css("height") );
+					
+					fone = "&nbsp;";
+					if( c.telefone1 )
+						fone = c.telefone1;
+					if( c.telefone2 )
+						fone += "<br />" + c.telefone2;
+					$("#telefone1").html( fone );
+					
+					mail = "&nbsp;";
+					if( c.email1 )
+						mail = c.email1;
+					if( c.email2 )
+						mail += "<br />" + c.email2;
+					$("#email1").html( mail );
+					
+					$("#informacoesAdicionais").html( c.informacoesAdicionais ? c.informacoesAdicionais : "&nbsp;" );
+					$("#informacoesAdicionais").css( "height", $("#informacoesAdicionais").parent().css("height") );
+					
+					contact = "Não cadastrado";
+					if( c.contato1 )
+						contact = c.contato1;
+					if( c.telefoneContato1 )
+						contact += "<br />" + c.telefoneContato1;
+					if( c.emailContato1 )
+						contact += "<br />" + c.emailContato1;
+					$("#contato1").html( contact );
+					$("#cargoContato1").html( c.cargoContato1 ? c.cargoContato1 : "Contato 1" );
+					$("#cargoContato1").css( "height", $("#cargoContato1").parent().css("height") );
+					
+					contact = "Não cadastrado";
+					if( c.contato1 )
+						contact = c.contato1;
+					if( c.telefoneContato1 )
+						contact += "<br />" + c.telefoneContato1;
+					if( c.emailContato1 )
+						contact += "<br />" + c.emailContato1;
+					$("#contato2").html( contact );
+					$("#cargoContato2").html( c.cargoContato1 ? c.cargoContato1 : "Contato 2" );
+					$("#cargoContato2").css( "height", $("#cargoContato2").parent().css("height") );
+				});
+				break;
+			
+			case 'representadas.html':
+				db.representadas.where('idx').equals(parseInt(_data['idx'])).each(function(c){
+					$("#razaoSocial").html( c.razaoSocial );
+					$("#v-title_text").html( c.nomeFantasia );
+					$("#nomeFantasia").html( c.nomeFantasia );
+					$("#cnpj").html( c.cnpj );
+					$("#comissao").html( pointToCommaSeparator(c.comissao) + "%" );
+					
+					addr = "&nbsp;";
+					if( c.endereco != "" )
+						addr = c.endereco;
+					if( c.complemento != "" )
+						addr += "<br />" + c.complemento;
+					if( c.cep != "" )
+						addr += "<br />" + c.cep;
+					if( c.bairro != "" )
+						addr += " - " + c.bairro;
+					if( c.cidade != "" )
+						addr += "<br />" + c.cidade;
+					if( c.estado != "" )
+						addr += "/" + c.estado;
+					$("#endereco").html( addr );
+					$("#endereco").css( "height", $("#endereco").parent().css("height") );
+					
+					$("#telefone").html( c.telefone ? c.telefone : "&nbsp;" );
+					$("#email").html( c.email ? c.email : "&nbsp;" );
+					
+					$("#informacoesAdicionais").html( c.informacoesAdicionais ? c.informacoesAdicionais : "&nbsp;" );
+					$("#informacoesAdicionais").css( "height", $("#informacoesAdicionais").parent().css("height") );
+					
+					contact = "Não cadastrado";
+					if( c.contato1 )
+						contact = c.contato1;
+					if( c.telefoneContato1 )
+						contact += "<br />" + c.telefoneContato1;
+					if( c.emailContato1 )
+						contact += "<br />" + c.emailContato1;
+					$("#contato1").html( contact );
+					$("#cargoContato1").html( c.cargoContato1 ? c.cargoContato1 : "Contato 1" );
+					$("#cargoContato1").css( "height", $("#cargoContato1").parent().css("height") );
+					
+					contact = "Não cadastrado";
+					if( c.contato2 )
+						contact = c.contato2;
+					if( c.telefoneContato2 )
+						contact += "<br />" + c.telefoneContato2;
+					if( c.emailContato2 )
+						contact += "<br />" + c.emailContato2;
+					$("#contato2").html( contact );
+					$("#cargoContato2").html( c.cargoContato2 ? c.cargoContato2 : "Contato 2" );
+					$("#cargoContato2").css( "height", $("#cargoContato2").parent().css("height") );
+					
+					db.produtos.where("representada").equals(c.id).each(function(p){
+						precos = "R$ "+ p.precoTabela;
+						if( p.precoTabela2 )
+							precos += " / " + p.precoTabela2;
+						if( p.precoTabela3 )
+							precos += " / " + p.precoTabela3;
+						if( p.precoTabela4 )
+							precos += " / " + p.precoTabela4;
+						
+						$(".v-lista_produtos").append('<div class="clientes_listagem" id="produto-'+ p.id +'"><div class="produtos_listagem_imagem"><img class="produtos_listagem_imagem_img" src="../images/produtos/default.png" /></div><div class="produtos_listagem_conteudo"><a class="clientes_listagem-fantasia" href="produtos.html?idx='+ p.idx +'"><span>'+ p.nome +'</span></a> <span class="clientes_listagem-razao">- '+ c.nomeFantasia +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ p.s +'"><div class="clientes_listagem_div_interna_fone">Preço de Tabela: '+ precos +'</div><div class="clientes_listagem_div_interna_mail">IPI: '+ pointToCommaSeparator(p.ipi) +'%</div></div></div><div><button class="clientes_listagem_editar" onclick="document.location = \'../editar/produtos.html?idx='+ p.idx +'\';" id="produtos_editar-'+ p.id +'">Editar Produto</button></div></div>');
+					});
+				});
+				break;
+			
+			case 'produtos.html':
+				db.produtos.where('idx').equals(parseInt(_data['idx'])).each(function(c){
+					db.representadas.where("id").equals(c.representada).each(function(r){
+						document.location = "representadas.html?idx=" + r.idx;
+					});
+				});
+				break;
+			
+			case 'pedidos.html':
+				db.pedidos.where("idx").equals(parseInt(_data["idx"])).each(function(p){
+					$("#v-title_text").text("Pedido #" + p.id);
+					
+					status_t = "";
+					switch(p.status)
+					{
+						case "E":
+							status_t = "Enviado à Representada";
+							break;
+							
+						case "I":
+							status_t = "Incompleto";
+							break;
+						
+						case "C":
+							status_t = "Completo";
+							break;
+							
+						default:
+							status_t = "Indefinido";
+							break;
+					}
+					$(".v-title_status").addClass("v-title_status_" + p.status).text( status_t );
+					$("#v-modify_status").val(p.status);
+					
+					db.clientes.where("id").equals(p.cliente).each(function(c){
+						$("#cliente_pedido").html('<div class="clientes_listagem" id="cliente-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/clientes.html?idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone1 +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email1 +'" target="_blank">'+ c.email1 +'</a></div></div></div>');
+					});
+					db.representadas.where("id").equals(p.representada).each(function(c){
+						$("#representada_pedido").html('<div class="clientes_listagem" id="representada-'+ c.id +'"><a class="clientes_listagem-fantasia" href="visualizar/representadas.html?idx='+ c.idx +'"><span class="clientes_listagem-fantasia">'+ c.nomeFantasia +'</span></a> <span class="clientes_listagem-razao">- '+ c.razaoSocial +' - '+ c.cnpj +'</span><div class="clientes_listagem_div_interna clientes_listagem_'+ c.s +'"><div class="clientes_listagem_div_interna_fone">'+ c.telefone +'</div><div class="clientes_listagem_div_interna_mail"><a href="mailto:'+ c.email +'" target="_blank">'+ c.email +'</a></div></div></div>');
+					});
+					
+					var i = 0;
+					var total = 0;
+					var qte = 0;
+					db.listadeprodutos.where("pedido").equals(p.id).each(function(c){
+						db.produtos.where("id").equals(c.produto).each(function(data){
+							precoTab = c.precoLiquido / ((1 - c.descontos) * c.quantidade);
+							
+							$("#produtos_pedido").append('<div class="v-prod_topo v-prod_topo_2" id="cldp_item-'+ data.id +'"><div class="v-prod_title_'+ i +'">'+ (data.codigo ? data.codigo : '------') +'</div><div class="v-prod_title_desc_'+ i +'">'+ (data.nome ? data.nome : 'Descrição não disponível') +'</div><div class="v-prod_title_'+ i +'">'+ c.quantidade +'</div><div class="v-prod_title_'+ i +'">R$ '+ pointToCommaSeparator(precoTab) +'</div><div class="v-prod_title_'+ i +'">'+ pointToCommaSeparator( c.descontos ) +'%</div><div class="v-prod_title_'+ i +'" id="cldp_precoLiquido-'+ data.id +'">R$ '+ pointToCommaSeparator(c.precoLiquido) +'</div><div class="v-prod_title_'+ i +'" id="cldp_ipi-'+ data.id +'">'+ pointToCommaSeparator(data.ipi) +'%</div><div class="v-prod_title_'+ i +'" id="cldp_subtotal-'+ data.id +'">R$ '+ pointToCommaSeparator(c.subtotal) +'</div></div>');
+							i = i ? 0 : 1;
+							
+							total += parseFloat(c.subtotal);
+							qte += parseInt(c.quantidade);
+						});
+					}).finally(function(){
+						$("#v-valor_total").text("R$ " + pointToCommaSeparator( total ));
+						$("#v-quantidade_total").text(qte);
+					});
+					
+					$("#pedido").text(p.id);
+					d = p.dataEmissao.split(' ')[0].split('-');
+					$("#dataEmissao").text(d[2] + "/" + d[1] + "/" + d[0]);
+					$("#condicaoDePagamento").html(p.condicaoDePagamento ? p.condicaoDePagamento : "&nbsp;");
+					db.vendedores.where("id").equals(p.vendedor).each(function(v){
+						$("#vendedor").text(v.nome);
+					});
+					$("#transportadora").text(p.transportadora);
+					db.clientes.where("id").equals(p.cliente).each(function(c){
+						$("#contato").html(c.contato1 ? c.contato1 : "&nbsp;");
+					});
+					$("#informacoesAdicionais").html(p.informacoesAdicionais ? p.informacoesAdicionais : "&nbsp;");
+					
+				}).finally(function(){
+					window.setTimeout(function(){
+						if( typeof $("#v-valor_final").offset() != 'undefined' )
+						{
+							var fixmeTop = $("#v-valor_final").position().top + $("#v-valor_final").height();
+							
+							$(window).scroll(function(){
+								var curScroll = $(window).scrollTop() + $(window).height();
+								
+								if( curScroll >= fixmeTop )
+								{
+									$("#v-valor_final").css({
+										position: 'static',
+										width: '100%'
+									});
+								}
+								else
+								{
+									$("#v-valor_final").css({
+										position: 'fixed',
+										width: '100%',
+										bottom: '0',
+									});
+								}
+							});
+							
+							$(window).trigger('scroll');
+						}
+
+					}, 20);
+				});
+				break;
+		}
+	}
+	
+	
+	$("#v-title_edit_button").click(function(){
+		document.location = "../editar/" + page + "?" + query_str;
+	});
+	$("#v-title_new_button").click(function(){
+		document.location = "../cadastrar/pedidos.html?" + query_str + "&c=" + _data["idx"];
+	});
+	
+	$("#v-info_separator").click(function(){
+		$("#v-info_hidden").toggle(400);
+		$("#v-info_separator_1").toggle();
+		$("#v-info_separator_2").toggle();
+	});
 });
 
 

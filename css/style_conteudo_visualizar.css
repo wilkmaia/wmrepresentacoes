@@ -52,6 +52,9 @@
 .v-info_label_addr {
 	height: 7em;
 }
+.v-info_label_addr2 {
+	height: 3em;
+}
 
 .v-info_data {
 	color: #222;
@@ -127,23 +130,29 @@
 .v-prod_topo {
 	height: 30px;
 	display: table;
+	width: 100%;
 	margin-top: 1em;
+}
+
+.v-prod_topo_2 {
+	height: 6em;
+	line-height: 6em;
 }
 
 .v-prod_title {
 	display: table-cell;
-	width: 7em;
+	width: 8%;
 }
 
 .v-prod_title_0 {
 	display: table-cell;
-	width: 9em;
+	width: 8%;
 	background: #f9f9f7;
 }
 
 .v-prod_title_1 {
 	display: table-cell;
-	width: 9em;
+	width: 8%;
 }
 
 .v-prod_title_desc {
@@ -247,7 +256,7 @@
 }
 
 #v-quantidade_total {
-	font-size: 90%;
+	font-size: 120%;
 	padding-left: 0.2em;
 	color: #333;
 }

@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/style_conteudo.css" />
+	<link rel="stylesheet" href="../css/style_conteudo_visualizar.css" />
+	
+	<script src="../js/lib/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.maskedinput-1.4.1.js"></script>
+	<script type="text/javascript" src="../js/lib/Dexie.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+</head>
+
+<body>
+	<div id="title">
+		<h1 id="title_title"><a href="../index.html">WM Representações.</a></h1>
+	</div>
+	
+	<div id="menu">
+		<ul>
+			<li><a href="../clientes.html">Clientes</a></li>
+			<li><a href="../representadas.html">Representadas</a></li>
+			<li><a href="../pedidos.html">Pedidos</a></li>
+			<li><a href="../produtos.html">Produtos</a></li>
+		</ul>
+	</div>
+	
+	<div id="content">
+		<div id="v-title">
+			<span id="v-title_text"></span>
+			<button class="v-top_button" id="v-title_edit_button">Editar Informações</button>
+			<span class="v-title_status"></span>
+			<br />
+			
+			<span id="v-modify_status_text">Modificar Status do Pedido</span>
+			<select id="v-modify_status">
+				<option value="I">Incompleto</option>
+				<option value="C">Completo</option>
+				<option value="E">Enviado à Representada</option>
+			</select>
+			
+			
+		</div>
+		
+		<div class="v-second_div">
+			<span class="v-second_div_title">CLIENTE</span>
+			<div id="cliente_pedido"></div>
+		</div>
+		
+		<div class="v-second_div">
+			<span class="v-second_div_title">REPRESENTADA</span>
+			<div id="representada_pedido"></div>
+		</div>
+		
+		<div class="v-second_div">
+			<span class="v-second_div_title">PRODUTOS</span>
+			<hr class="v-bottom_border" />
+			
+			<div id="produtos_pedido">
+				<div class="v-prod_topo">
+					<div class="v-prod_title">Código</div>
+					<div class="v-prod_title_desc">Descrição</div>
+					<div class="v-prod_title">Qtde.</div>
+					<div class="v-prod_title">Preço Tab.</div>
+					<div class="v-prod_title">Descontos</div>
+					<div class="v-prod_title">Preço Líq.</div>
+					<div class="v-prod_title">IPI</div>
+					<div class="v-prod_title">Subtotal</div></div>
+			</div>
+			
+			<div id="v-valor_final">
+				<div id="v-valor_final_text">
+					Total <span id="v-valor_total"></span> <br /> <br />
+					Quantidade total <span id="v-quantidade_total"></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="v-second_div">
+			<span class="v-second_div_title">INFORMAÇÕES ADICIONAIS</span>
+			<hr class="v-bottom_border" />
+			
+			<table id="v-infos_comp">
+				<tr class="v-infos_comp_tr">
+					<td class="v-infos_comp_td v-infos_comp_campo">Número do Pedido</td>
+					<td class="v-infos_comp_td v-infos_comp_valor" id="pedido"></td>
+					
+					<td class="v-infos_comp_td v-infos_comp_campo">Data de Emissão</td>
+					<td class="v-infos_comp_td v-infos_comp_valor" id="dataEmissao"></td>
+				</tr>
+				
+				<tr class="v-infos_comp_tr">
+					<td class="v-infos_comp_td v-infos_comp_campo">Condição de Pagamento</td>
+					<td class="v-infos_comp_td v-infos_comp_valor" id="condicaoDePagamento"></td>
+					
+					<td class="v-infos_comp_td v-infos_comp_campo">Vendedor</td>
+					<td class="v-infos_comp_td v-infos_comp_valor" id="vendedor"></td>
+				</tr>
+				
+				<tr class="v-infos_comp_tr">
+					<td class="v-infos_comp_td v-infos_comp_campo">Transportadora</td>
+					<td class="v-infos_comp_td v-infos_comp_valor" id="transportadora"></td>
+					
+					<td class="v-infos_comp_td v-infos_comp_campo">Contato Cliente</td>
+					<td class="v-infos_comp_td v-infos_comp_valor" id="contato"></td>
+				</tr>
+				
+				<tr class="v-infos_comp_tr">
+					<td class="v-infos_comp_td v-infos_comp_campo">Informações Adicionais</td>
+					<td class="v-infos_comp_td v-infos_comp_valor_2" id="informacoesAdicionais"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

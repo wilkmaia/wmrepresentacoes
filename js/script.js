@@ -1,4 +1,4 @@
-var syncpage = "http://10.46.18.39/wm/admin/conteudo/sync/"
+﻿var syncpage = "http://192.168.0.2/wm/admin/conteudo/sync/"
 var db;
 var nProdutos = 0;
 var _z = 0;
@@ -556,7 +556,10 @@ $(document).ready(function(){
 		if( _data["idx"] != undefined )
 		{
 			_delProd.forEach(function(c){
-				db.listadeprodutos.delete(parseInt(c));
+				db.listadeprodutos.update(parseInt(c),
+				{
+					s: 3,
+				});
 				$('[name="lp-'+ c +'"]').remove();
 			});
 			
@@ -1461,19 +1464,25 @@ $(document).ready(function(){
 					var i = 0;
 					var total = 0;
 					var qte = 0;
-					db.listadeprodutos.where("pedido").equals(p.id).each(function(c){
-						db.produtos.where("id").equals(c.produto).each(function(data){
-							precoTab = c.precoLiquido / ((1 - c.descontos/100) * c.quantidade);
+					db.transaction("rw", db.produtos, db.listadeprodutos, function(){
+						db.listadeprodutos.where("pedido").equals(p.id).each(function(c){
+							if( c.s == 3 )
+								return;
 							
-							$("#produtos_pedido").append('<div class="v-prod_topo v-prod_topo_2" id="cldp_item-'+ data.id +'"><div class="v-prod_title_'+ i +'">'+ (data.codigo ? data.codigo : '------') +'</div><div class="v-prod_title_desc_'+ i +'">'+ (data.nome ? data.nome : 'Descrição não disponível') +'</div><div class="v-prod_title_'+ i +'">'+ c.quantidade +'</div><div class="v-prod_title_'+ i +'">R$ '+ pointToCommaSeparator(precoTab) +'</div><div class="v-prod_title_'+ i +'">'+ pointToCommaSeparator( c.descontos ) +'%</div><div class="v-prod_title_'+ i +'" id="cldp_precoLiquido-'+ data.id +'">R$ '+ pointToCommaSeparator(c.precoLiquido) +'</div><div class="v-prod_title_'+ i +'" id="cldp_ipi-'+ data.id +'">'+ pointToCommaSeparator(data.ipi) +'%</div><div class="v-prod_title_'+ i +'" id="cldp_subtotal-'+ data.id +'">R$ '+ pointToCommaSeparator(c.subtotal) +'</div></div>');
-							i = i ? 0 : 1;
-							
-							total += parseFloat(c.subtotal);
-							qte += parseInt(c.quantidade);
+							db.produtos.where("id").equals(c.produto).each(function(data){
+								precoTab = c.precoLiquido / ((1 - c.descontos/100) * c.quantidade);
+								
+								$("#produtos_pedido").append('<div class="v-prod_topo v-prod_topo_2" id="cldp_item-'+ data.id +'"><div class="v-prod_title_'+ i +'">'+ (data.codigo ? data.codigo : '------') +'</div><div class="v-prod_title_desc_'+ i +'">'+ (data.nome ? data.nome : 'Descrição não disponível') +'</div><div class="v-prod_title_'+ i +'">'+ c.quantidade +'</div><div class="v-prod_title_'+ i +'">R$ '+ pointToCommaSeparator(precoTab) +'</div><div class="v-prod_title_'+ i +'">'+ pointToCommaSeparator( c.descontos ) +'%</div><div class="v-prod_title_'+ i +'" id="cldp_precoLiquido-'+ data.id +'">R$ '+ pointToCommaSeparator(c.precoLiquido) +'</div><div class="v-prod_title_'+ i +'" id="cldp_ipi-'+ data.id +'">'+ pointToCommaSeparator(data.ipi) +'%</div><div class="v-prod_title_'+ i +'" id="cldp_subtotal-'+ data.id +'">R$ '+ pointToCommaSeparator(c.subtotal) +'</div></div>');
+								i = i ? 0 : 1;
+								
+								total += parseFloat(c.subtotal);
+								qte += parseInt(c.quantidade);
+							});
 						});
 					}).finally(function(){
 						$("#v-valor_total").text("R$ " + pointToCommaSeparator( total ));
 						$("#v-quantidade_total").text(qte);
+						console.log(total + " - " + qte);
 					});
 					
 					$("#pedido").text(p.id);

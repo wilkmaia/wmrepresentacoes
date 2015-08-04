@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿var syncpage = "http://192.168.0.2/wm/admin/conteudo/sync/"
+=======
+var syncpage = "http://192.168.0.2/wm/admin/conteudo/sync/"
+>>>>>>> origin/master
 var db;
 var nProdutos = 0;
 var _z = 0;
